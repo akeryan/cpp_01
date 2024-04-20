@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 15:08:48 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/20 17:13:42 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/20 18:59:55 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ Zombie::Zombie(void) {
 
 Zombie::Zombie(std::string name) {
 	this->name = name;
+}
+
+Zombie::~Zombie(void) {
+	std::cout << this->name << " destroyed" << std::endl; 
 }
 
 void Zombie::announce(void) {
