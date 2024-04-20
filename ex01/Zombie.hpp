@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 15:08:48 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/20 20:19:09 by akeryan          ###   ########.fr       */
+/*   Created: 2024/04/20 14:51:30 by akeryan           #+#    #+#             */
+/*   Updated: 2024/04/20 19:14:46 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Zombie::Zombie(void) {
-	name = "";
-}
+#include <string>
 
-Zombie::Zombie(std::string name) {
-	this->name = name;
-}
+class Zombie {
+	private:
+		std::string	name;
 
-Zombie::~Zombie(void) {
-	std::cout << this->name << " destroyed" << std::endl; 
-}
+	public:
+		Zombie(void);
+		Zombie(std::string name);
+		~Zombie(void);
+		void setName(std::string name);
+		void announce(void);
+};
 
-void Zombie::announce(void) {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	std::cout << std::endl;
-}
-
-void Zombie::setName(std::string name) {
-	this->name = name;
-}
+#endif

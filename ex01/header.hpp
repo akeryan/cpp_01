@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   header.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 15:08:48 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/20 20:19:09 by akeryan          ###   ########.fr       */
+/*   Created: 2024/04/20 19:11:37 by akeryan           #+#    #+#             */
+/*   Updated: 2024/04/20 19:19:59 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef HEADER_HPP
+# define HEADER_HPP
+
 #include "Zombie.hpp"
 
-Zombie::Zombie(void) {
-	name = "";
-}
+Zombie	*zombieHorde(int N, std::string name);
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name); 
 
-Zombie::Zombie(std::string name) {
-	this->name = name;
-}
+#endif
 
-Zombie::~Zombie(void) {
-	std::cout << this->name << " destroyed" << std::endl; 
-}
-
-void Zombie::announce(void) {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	std::cout << std::endl;
-}
-
-void Zombie::setName(std::string name) {
-	this->name = name;
-}
