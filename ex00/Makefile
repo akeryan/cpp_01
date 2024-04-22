@@ -6,11 +6,11 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 15:06:19 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/20 15:07:06 by akeryan          ###   ########.fr        #
+#    Updated: 2024/04/22 13:42:56 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie 
+NAME = exec 
 
 FLAGS =  -Wall -Wextra -Werror -std=c++98
 CC = c++

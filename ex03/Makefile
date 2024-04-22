@@ -6,11 +6,11 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 20:49:33 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/21 15:19:06 by akeryan          ###   ########.fr        #
+#    Updated: 2024/04/22 13:41:56 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = executable 
+NAME = exec 
 
 FLAGS =  -Wall -Wextra -Werror -std=c++98
 CC = c++

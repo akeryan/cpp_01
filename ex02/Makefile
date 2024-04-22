@@ -6,11 +6,11 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 20:35:38 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/20 20:36:19 by akeryan          ###   ########.fr        #
+#    Updated: 2024/04/22 13:43:14 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brain 
+NAME = exec 
 
 FLAGS =  -Wall -Wextra -Werror -std=c++98
 CC = c++

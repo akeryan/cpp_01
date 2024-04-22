@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/20 15:06:19 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/22 13:43:05 by akeryan          ###   ########.fr        #
+#    Created: 2024/04/20 20:49:33 by akeryan           #+#    #+#              #
+#    Updated: 2024/04/22 13:43:42 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,10 @@ FLAGS =  -Wall -Wextra -Werror -std=c++98
 CC = c++
 RM = rm -rf
 
-SRC_FILES = main.cpp	\
-			Zombie.cpp	\
-			zombieHorde.cpp	\
-			zFunctions.cpp
+SRC_FILES = main.cpp	
 
-INCLUDE_FILES = Zombie.hpp	\
-				header.hpp
+INCLUDE_FILES = 
+
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 
