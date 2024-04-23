@@ -6,16 +6,21 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:44:00 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/22 21:08:22 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/23 20:59:53 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
+#include <sys/stat.h>
 
-int checkArgs(int argc) {
+int checkArgs(int argc, char **argv) {
 	if (argc != 4) {
-		std::cerr << "Provide the following 3 parameters: 1) 'File name', 2) 'string' to be replaced with 3) 'string'" << std::endl;
+		std::cerr << "ERROR: Provide the following 3 parameters: 1) 'File name', 2) 'string' to be replaced with 3) 'string'" << std::endl;
+		return 0;
+	}
+	if (std::strcmp(argv[1], "") == 0 || std::strcmp(argv[2], "") == 0 || std::strcmp(argv[3], "") == 0) {
+		std::cerr << "ERROR: one of the parameters is an empty string" << std::endl;
 		return 0;
 	}
 	return 1;
@@ -23,9 +28,27 @@ int checkArgs(int argc) {
 
 int openFiles(std::ifstream &infile, std::ofstream &outfile, std::string inFileName) {
 	std::string outFileName;
-	infile.open(inFileName);
+	struct stat fileInfo;	
+
+	if (stat(inFileName.c_str(), &fileInfo) != 0) {
+		std::cout << "ERROR: Failed to get file information" << std::endl;
+        return 0;
+    }
+	// Check if the passed file is a folder..
+	if (S_ISREG(fileInfo.st_mode) == false) {
+		std::cout << "ERROR: The file seems to be a folder..." << std::endl;
+		return 0;
+	}
+
+	infile.open(inFileName.c_str());
+	// Check if file opened successfully
 	if (!infile.is_open()) {
-		std::cerr << "The '" << inFileName << "' file does not exist" << std::endl;
+		std::cerr << "ERROR: Failed to open the file" << std::endl;
+		return 0;
+	}
+	// Check if the file is readable
+	if (!infile.good()) {
+		std::cerr << "ERROR: Failed reading file" << std::endl;
 		return 0;
 	}
 	outFileName = inFileName;
@@ -40,7 +63,7 @@ int main(int argc, char **argv)
 	std::ofstream	outData;
 	std::string		line;
 
-	if (!checkArgs(argc))
+	if (!checkArgs(argc, argv))
 		return 1;
 	if (!openFiles(inData, outData, argv[1]))
 		return 1;
