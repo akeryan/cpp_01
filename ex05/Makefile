@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 20:49:33 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/23 09:47:06 by akeryan          ###   ########.fr        #
+#    Updated: 2024/04/23 09:57:44 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ FLAGS =  -Wall -Wextra -Werror -std=c++98
 CC = c++
 RM = rm -rf
 
-SRC_FILES = main.cpp	
+SRC_FILES = main.cpp	\
+			Harl.cpp	
+
+INCLUDE_FILES = Harl.hpp	
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 

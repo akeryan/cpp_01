@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 20:49:33 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/22 13:41:56 by akeryan          ###   ########.fr        #
+#    Updated: 2024/04/23 09:47:24 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRC_FILES = main.cpp	\
 INCLUDE_FILES = Weapon.hpp	\
 				HumanA.hpp	\
 				HumanB.hpp	
-
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 
