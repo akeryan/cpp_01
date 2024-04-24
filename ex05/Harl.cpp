@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:03:23 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/23 17:14:10 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/24 15:43:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 #include <functional>
 #include "Harl.hpp"
 
-Harl::Harl(void) {
-	fmap["DEBUG"] = &Harl::debug; 
-	fmap["INFO"] = &Harl::info;
-	fmap["WARNING"] = &Harl::warning;
-	fmap["ERROR"] = &Harl::error;
+Harl::Harl()
+{
+	levels[0] = "DEBUG";
+	levels[1] = "INFO";
+	levels[2] = "WARNING";
+	levels[3] = "ERROR";
+	funcs[0] = &Harl::debug; 
+	funcs[1] = &Harl::info;
+	funcs[2] = &Harl::warning;
+	funcs[3] = &Harl::error;
 }
 
 void Harl::debug(void) {
@@ -39,10 +44,8 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string level) {
-	std::map <std::string, void(Harl::*)(void) >::iterator it = fmap.find(level);
-	if (it != fmap.end()) {
-		(this->*(it->second))();
-	} else {
-		std::cout << "ERROR: Invalid argument!" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		if (level == levels[i])
+			(this->*funcs[i])();
 	}
 };
