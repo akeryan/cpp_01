@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 20:51:25 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/22 10:39:06 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/25 09:16:36 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int main(void) {
 
 		HumanA bob("Bob", club);
 		bob.attack();
-		//std::cout << "Bob's weapon: " << club.getType() << std::endl;
 		club.setType("some other type of club");
-		//std::cout << "Bob's weapon: " << club.getType() << std::endl;
 		bob.attack();
 	}
 	{

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:44:00 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/23 20:59:53 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/25 09:59:32 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int checkArgs(int argc, char **argv) {
 	return 1;
 }
 
-int openFiles(std::ifstream &infile, std::ofstream &outfile, std::string inFileName) {
-	std::string outFileName;
+int openFileForReading(std::ifstream &infile, const std::string &inFileName) 
+{
 	struct stat fileInfo;	
 
 	if (stat(inFileName.c_str(), &fileInfo) != 0) {
@@ -40,10 +40,10 @@ int openFiles(std::ifstream &infile, std::ofstream &outfile, std::string inFileN
 		return 0;
 	}
 
-	infile.open(inFileName.c_str());
+	infile.open(inFileName.c_str(), std::ifstream::in);
 	// Check if file opened successfully
 	if (!infile.is_open()) {
-		std::cerr << "ERROR: Failed to open the file" << std::endl;
+		std::cerr << "ERROR: Failed to open the file for reading" << std::endl;
 		return 0;
 	}
 	// Check if the file is readable
@@ -51,11 +51,26 @@ int openFiles(std::ifstream &infile, std::ofstream &outfile, std::string inFileN
 		std::cerr << "ERROR: Failed reading file" << std::endl;
 		return 0;
 	}
-	outFileName = inFileName;
-	outFileName += ".replace";
-	outfile.open(outFileName);
+	
 	return 1;
 }
+
+int openFileForWriting(std::ofstream &outfile,  const std::string &inFileName) 
+{
+	std::string outFileName;
+
+	outFileName = inFileName;
+	outFileName += ".replace";
+	outfile.open(outFileName.c_str(), std::ios::out);
+	
+	if(!outfile.is_open()) {
+		std::cerr << "ERROR: Failed to open the file for writing" << std::endl;
+		return 0;
+	}
+
+	return 1;
+}
+
 
 int main(int argc, char **argv)
 {
@@ -65,8 +80,11 @@ int main(int argc, char **argv)
 
 	if (!checkArgs(argc, argv))
 		return 1;
-	if (!openFiles(inData, outData, argv[1]))
+	if (!openFileForReading(inData, argv[1]))
 		return 1;
+	if (!openFileForWriting(outData, argv[1]))
+		return 1;
+
 	std::string wordToFind = argv[2];
 	std::string replacementWord = argv[3];
 
