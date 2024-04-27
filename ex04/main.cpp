@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:44:00 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/25 09:59:32 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/27 12:57:02 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int checkArgs(int argc, char **argv) {
 		std::cerr << "ERROR: Provide the following 3 parameters: 1) 'File name', 2) 'string' to be replaced with 3) 'string'" << std::endl;
 		return 0;
 	}
-	if (std::strcmp(argv[1], "") == 0 || std::strcmp(argv[2], "") == 0 || std::strcmp(argv[3], "") == 0) {
+	if (!*argv[1] || !*argv[2] || !*argv[3]) {
 		std::cerr << "ERROR: one of the parameters is an empty string" << std::endl;
 		return 0;
 	}

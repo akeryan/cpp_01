@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 20:49:33 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/23 09:47:06 by akeryan          ###   ########.fr        #
+#    Updated: 2024/04/27 12:58:17 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) *.replace
 
 re: fclean all
 
